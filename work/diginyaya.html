@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiNyaya case study | Shivaum Shekhar Sharma</title>
+    <meta name="description" content="An AI-native platform that resolves routine civil disputes in minutes, and is built to know which ones it must refuse.">
+    <meta name="theme-color" content="#f6f2ec">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23c2410c'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' text-anchor='middle' fill='white'%3ESS%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=3">
+    <script>
+        try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    </script>
+</head>
+
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="header" id="header">
+        <nav class="nav wrap" aria-label="Primary">
+            <a href="../index.html" class="logo" aria-label="Shivaum Sharma, home">SS<span>.</span></a>
+            <div class="nav__actions">
+                <a class="btn btn--small btn--ghost" href="../index.html#work">All work</a>
+                <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+                    <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                    <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main id="main">
+        <article class="case wrap">
+            <a class="case__back" href="../index.html#work">&larr; All work</a>
+            <header class="case__head">
+                <p class="project__kicker">Case study · Multi-agent AI · Legal tech</p>
+                <h1 class="case__title">DigiNyaya</h1>
+                <p class="case__lead">An AI-native platform that resolves routine civil disputes in minutes, and is built to know which ones it must refuse.</p>
+            </header>
+            <dl class="case__facts">
+                    <div><dt>Role</dt><dd>Engineer and product owner: agents, retrieval, evaluation, CI and cloud</dd></div>
+                    <div><dt>When</dt><dd>2026, still in active development</dd></div>
+                    <div><dt>Stack</dt><dd>Python, FastAPI, React + TypeScript, PostgreSQL, SSE, AWS + Terraform, Sarvam AI</dd></div>
+                    <div><dt>Recognition</dt><dd>Sarvam AI Startup Program, 2026</dd></div>
+            </dl>
+
+            <section class="case__sec">
+                <h2>The problem</h2>
+                <p>India&#x27;s district courts hold more than 4.2 crore pending cases, and typical counsel costs routinely exceed the amount in dispute. For a routine claim, the rational move is to give up, so a whole class of disputes never enters the system at all.</p>
+                <p>The product question was not &quot;can an LLM write a judgment?&quot; It was: which disputes can a machine handle safely, how do you show your reasoning, and how do you stop it from ever inventing money, deadlines or citations?</p>
+            </section>
+
+            <section class="case__sec">
+                <h2>What I built</h2>
+                <p>Five coordinated agents (ingestion, precedent research, argument analysis, mediation, resolution drafting) run through a hand-rolled orchestration state machine that routes on confidence, loops back to research when precedent coverage is thin, and pauses for the mediation decision.</p>
+                <p>A two-checkpoint safety gate sends weak, out-of-scope or contested cases to a human reviewer before the AI can decide. Resolutions stream over Server-Sent Events from a durable, hash-chained event log, so a page refresh never loses or duplicates a run.</p>
+            </section>
+
+            <section class="case__sec">
+                <h2>Decisions that mattered</h2>
+                <ol class="case__decisions">
+                    <li><h3>Put deterministic guardrails around every model output</h3><p>The model proposes; code disposes. Relief amounts are clamped to a band derived from real precedents, dismissal is forced whenever the respondent&#x27;s case is at least as strong as the claimant&#x27;s, and citations are filtered to what was actually retrieved. Hallucinated citations are blocked before they reach a user.</p></li>
+                    <li><h3>Hide the winnability score from the respondent</h3><p>Claimants see a 0 to 100 case-strength score before filing. Showing the same score to respondents let them coast on a low-effort reply because the AI had &quot;already decided&quot; the case was weak, so respondents see the evidence review but not the score.</p></li>
+                    <li><h3>Evaluate against real judgments, and retire numbers that did not hold up</h3><p>I scaled the evaluation from 1,914 to 23,841 real Indian court cases, sourced at no cost from public court data. Full-match accuracy fell from 50.8% on the small sample, so I retired the earlier figures rather than keep quoting them.</p></li>
+                </ol>
+            </section>
+
+            <section class="case__sec">
+                <h2>Results</h2>
+                <ul class="case__results">
+                    <li><strong>23,841</strong><span>real court cases in the evaluation set</span></li>
+                    <li><strong>74.9%</strong><span>directional accuracy on resolved cases</span></li>
+                    <li><strong>0.63</strong><span>macro F1, versus 0.45 for an always-claimant baseline</span></li>
+                    <li><strong>54/54</strong><span>citations grounded on an 18-case golden suite</span></li>
+                </ul>
+                <p class="case__note">Full match (exact outcome and relief) is 39.4%. 34.7% of the 23,841 cases escalated to human review on low confidence. In earlier prototype testing on 100+ disputes, 78% resolved without escalation in 2.3 minutes on average.</p>
+            </section>
+
+            <section class="case__sec">
+                <h2>What went wrong, and what is next</h2>
+                <ul class="bullets">
+                    <li>An LLM-judge prompt bug was understating accuracy, and two fixes I made for a pro-landlord bias in tenancy cases made real cases worse, so I reverted them.</li>
+                    <li>The live AWS backend could not complete a single login until 14 September: the single-instance environment had no TLS listener and the frontend correctly refused plain HTTP. I fixed it with a CloudFront distribution in front of the backend.</li>
+                    <li>There is deliberately no self-service data deletion yet. A case record doubles as an evidentiary audit trail, so what to purge is a legal decision, not one I should make in code.</li>
+                </ul>
+                <p class="case__next"><b>Next:</b> Finishing the TypeScript migration of the frontend, a custom domain, and growing the real-case evaluation set.</p>
+            </section>
+
+            <div class="case__links">
+                    <a class="btn btn--small" href="https://diginyaya-frontend.onrender.com" target="_blank" rel="noopener">Live demo</a>
+                    <a class="btn btn--small btn--ghost" href="https://github.com/shivaumsharma/DigiNyaya" target="_blank" rel="noopener">Source code</a>
+                    <a class="btn btn--small btn--ghost" href="../index.html#diginyaya-video">Watch the walkthrough</a>
+            </div>
+
+            <nav class="case__more" aria-label="Other case studies">
+                <p class="project__kicker">More case studies</p>
+                <ul>
+                    <li><a href="finsight.html">FinSight AI</a></li>
+                    <li><a href="nexus.html">Nexus</a></li>
+                    <li><a href="argus.html">Argus</a></li>
+                </ul>
+            </nav>
+        </article>
+    </main>
+    <footer class="footer wrap">
+        <p>&copy; <span id="year">2026</span> Shivaum Shekhar Sharma &middot; Bengaluru, India<br><small>Privacy-friendly page-view counts (no cookies, no personal data).</small></p>
+        <ul>
+            <li><a href="https://github.com/shivaumsharma" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/shivaum-sharma" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:sshivaum@gmail.com">Email</a></li>
+        </ul>
+    </footer>
+    <script src="../main.js?v=3"></script>
+    <script data-goatcounter="https://shivaumsharma.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

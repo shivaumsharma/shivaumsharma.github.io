@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
     <script>
         // Apply saved theme before first paint to avoid a flash
         try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
@@ -59,7 +59,8 @@
                     <a class="btn" href="#work">See my work
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                     </a>
-                    <a class="btn btn--ghost" href="assets/Shivaum_Sharma_Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+                    <a class="btn btn--ghost" href="assets/Shivaum_Sharma_Resume.pdf" target="_blank" rel="noopener">Resume (AI / data)</a>
+                    <a class="btn btn--ghost" href="assets/Shivaum_Sharma_Resume_Product.pdf" target="_blank" rel="noopener">Resume (product)</a>
                 </div>
                 <ul class="hero__links" aria-label="Profiles">
                     <li><a href="https://github.com/shivaumsharma" target="_blank" rel="noopener">GitHub</a></li>
@@ -74,11 +75,34 @@
 
         <!-- NUMBERS -->
         <section class="wrap stats reveal" aria-label="Selected results">
-            <div class="stat"><strong>256×</strong><span>faster graph engine (40s to 0.1s) at BHEL</span></div>
-            <div class="stat"><strong>78%</strong><span>of 100+ disputes resolved without human escalation</span></div>
-            <div class="stat"><strong>4×</strong><span>faster research reports (257s to 65s)</span></div>
+            <div class="stat"><strong>400×</strong><span>faster graph engine (40s to 0.1s) at BHEL</span></div>
+            <div class="stat"><strong>23,841</strong><span>real court cases DigiNyaya was evaluated on</span></div>
+            <div class="stat"><strong>74.9%</strong><span>directional accuracy on resolved real cases</span></div>
             <div class="stat"><strong>~1,000</strong><span>tickers in a point-in-time backtest</span></div>
             <div class="stat"><strong>₹4L+</strong><span>raised by the startups I led at MAHE</span></div>
+        </section>
+
+        <!-- CURRENTLY BUILDING -->
+        <section class="wrap building reveal" aria-labelledby="building-title">
+            <div class="building__head">
+                <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Currently building</p>
+                <h2 class="building__title" id="building-title">What I'm working on right now</h2>
+            </div>
+            <ul class="building__list">
+                <li>
+                    <b>Argus</b>
+                    <p>Testing whether the same graph engine that finds promo-abuse rings also detects real botnet command-and-control traffic (CTU-13), and stress-testing it against attackers who deliberately restructure to evade it.</p>
+                </li>
+                <li>
+                    <b>FinSight AI</b>
+                    <p>Finding out why its walk-forward portfolio backtest underperforms, then testing fixes. Next: hybrid retrieval (vector + BM25) and a Postgres migration.</p>
+                </li>
+                <li>
+                    <b>DigiNyaya</b>
+                    <p>Growing the real-court evaluation set and tightening its safety gate, after moving production to AWS. Finishing the TypeScript migration of the frontend.</p>
+                </li>
+            </ul>
+            <p class="building__stamp">Updated September 2026</p>
         </section>
 
         <!-- WORK -->
@@ -95,17 +119,17 @@
                     <p class="project__kicker">Multi-agent AI · Legal tech · 2026</p>
                     <h3 class="project__title">DigiNyaya</h3>
                     <p class="project__what">A platform where a citizen files a civil dispute and five coordinated AI agents parse the claim, research precedent, analyse both sides, mediate, and draft a resolution in minutes. Anything weak, out of scope, or contested is routed to a human reviewer instead of the AI.</p>
-                    <p class="project__note">Began as a hackathon build with Akshat Bagadia, Harshita Shahi and Samarth Chakravarty. The evaluation suite, CI pipeline, safety gate and everything measured below I built afterwards.</p>
                     <ul class="bullets">
-                        <li><strong>78%</strong> of 100+ test disputes resolved without escalation, in <strong>2.3 min</strong> on average versus about 4 hours manually.</li>
-                        <li>RAG over 50+ legal precedents: <strong>F1 0.87</strong>, hallucination <strong>8%</strong> versus a 34% baseline; 54/54 citations grounded on an 18-case golden suite.</li>
-                        <li>Root-caused two scoring failures and lifted correct win/lose calls from ~50% to <strong>67%</strong>.</li>
-                        <li>Hash-chained, tamper-evident audit log; circuit breakers on every AI call; CI gates every PR on the eval suite. Selected for the <strong>Sarvam AI Startup Program</strong> (2026).</li>
+                        <li>Evaluated on <strong>23,841 real Indian court cases</strong> with an LLM judge: <strong>74.9%</strong> directional accuracy and 39.4% full match on resolved cases, macro F1 0.63 versus 0.45 for an always-claimant baseline. Earlier, flattering figures from a smaller sample were retired.</li>
+                        <li>RAG over 217 legal precedents with citation verification, so hallucinated citations are blocked before reaching users: 54/54 citations grounded on an 18-case golden suite. In prototype testing on 100+ disputes, 78% resolved without escalation in 2.3 minutes.</li>
+                        <li>Grounding checks drop any AI-flagged document discrepancy unless its snippet is found verbatim in the source; low-confidence cases escalate to a human reviewer.</li>
+                        <li>Found a judge-prompt bug that understated accuracy, and reverted two fixes that made real cases worse. Every PR is gated by CI. Selected for the <strong>Sarvam AI Startup Program</strong> (2026).</li>
                     </ul>
                     <ul class="chips"><li>Python</li><li>FastAPI</li><li>React + TypeScript</li><li>PostgreSQL</li><li>SSE streaming</li><li>AWS + Terraform</li><li>Sarvam AI</li></ul>
                     <div class="project__links">
                         <a class="btn btn--small" href="https://diginyaya-frontend.onrender.com" target="_blank" rel="noopener">Live demo</a>
                         <a class="btn btn--small btn--ghost" href="#diginyaya-video">Watch walkthrough</a>
+                        <a class="btn btn--small btn--ghost" href="work/diginyaya.html">Case study</a>
                         <a class="btn btn--small btn--ghost" href="https://github.com/shivaumsharma/DigiNyaya" target="_blank" rel="noopener">Code</a>
                     </div>
                 </div>
@@ -164,16 +188,18 @@
                     <h3 class="project__title">FinSight AI</h3>
                     <p class="project__what">An equity-research and paper-trading platform. Ask about any listed company and an LLM planner picks the tools it needs (market data, SEC and NSE filings, DCF valuation, sentiment) and writes a sourced, institutional-style report.</p>
                     <ul class="bullets">
-                        <li>Report time cut <strong>4×</strong> (257s to 65s); RAG over live SEC EDGAR and NSE India filings with FinBERT sentiment.</li>
+                        <li>Report time cut <strong>4×</strong> (257s to 65s); RAG over live SEC EDGAR and NSE India filings with FinBERT sentiment, every report scored on grounding and citation before display.</li>
                         <li>From-scratch WACC, FCFF and DCF engine with Monte Carlo simulation and a 31-signal factor scorecard.</li>
-                        <li>Point-in-time backtest scaled from ~80 to <strong>~1,000 tickers</strong>. It showed the rating loses to "always Buy" (38.6% vs 58.4%), so I ship that number on every report.</li>
-                        <li>Next.js and FastAPI, provisioned on AWS with Terraform; 1,100+ tests; voice input and PWA.</li>
+                        <li>Point-in-time backtest scaled from ~80 to <strong>~1,000 tickers</strong>. It showed an earlier "70% accuracy" figure only measured agreement with analysts; I replaced it with 12-month forward accuracy against an Always-Buy baseline (38.6% vs 58.4%) and ship that number on every report.</li>
+                        <li>Caught 2 look-ahead data leaks and a class-imbalance trap (61% raw accuracy was just majority-class guessing) in the ML classifier.</li>
+                        <li>Next.js and FastAPI on AWS with Terraform; an optional Snowflake store reproduces the published accuracy across 1,907 scored calls; 1,000+ tests in CI and a 65-finding code audit, including an RCE fix.</li>
                     </ul>
-                    <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>FastAPI</li><li>ChromaDB</li><li>FinBERT</li><li>Terraform</li><li>AWS</li></ul>
+                    <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>FastAPI</li><li>ChromaDB</li><li>FinBERT</li><li>Snowflake</li><li>Terraform</li><li>AWS</li></ul>
                     <div class="project__links">
                         <a class="btn btn--small" href="https://web-ten-blond-39.vercel.app" target="_blank" rel="noopener">Live platform</a>
                         <a class="btn btn--small btn--ghost" href="https://huggingface.co/spaces/shivaumsharma/finsight-ai" target="_blank" rel="noopener">Research demo</a>
                         <a class="btn btn--small btn--ghost" href="https://github.com/shivaumsharma/FinSight-AI" target="_blank" rel="noopener">Code</a>
+                        <a class="btn btn--small btn--ghost" href="work/finsight.html">Case study</a>
                     </div>
                 </div>
                 <div class="project__visual">
@@ -193,13 +219,14 @@
                     <p class="project__what">Models a company's systems, vendors and supply chains as a directed graph, then answers: if this node fails, what else breaks, and which nodes are single points of failure? The graph algorithms are written from scratch with no graph libraries.</p>
                     <ul class="bullets">
                         <li>BFS, DFS, Dijkstra, max-flow/min-cut, cycle detection, topological sort, Tarjan's SCC, with cascading-failure simulation on top.</li>
-                        <li>Fixed an O(E²) bottleneck: <strong>40s to 0.1s</strong> on 10K to 50K node graphs (<strong>256×</strong>), approved by BHEL IT leadership.</li>
+                        <li>Fixed an O(E²) bottleneck: <strong>40s to 0.1s</strong> on 10K to 50K node graphs (<strong>400×</strong>), approved by BHEL IT leadership.</li>
                         <li><strong>94%</strong> alignment with domain-expert criticality rankings across 12+ projects.</li>
                         <li>FastAPI, async SQLAlchemy 2.0, PostgreSQL, JWT with role-based access, Alembic migrations, Docker and CI/CD; 141 local tests.</li>
                     </ul>
                     <ul class="chips"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy 2.0</li><li>Docker</li><li>GitHub Actions</li></ul>
                     <div class="project__links">
                         <a class="btn btn--small" href="https://github.com/shivaumsharma/Nexus" target="_blank" rel="noopener">Code</a>
+                        <a class="btn btn--small btn--ghost" href="work/nexus.html">Case study</a>
                     </div>
                 </div>
                 <div class="project__visual">
@@ -240,7 +267,8 @@
                     </ul>
                     <ul class="chips"><li>Python</li><li>NetworkX / Louvain</li><li>Streamlit</li><li>LLM guardrails</li></ul>
                     <div class="project__links">
-                        <a class="btn btn--small" href="https://github.com/shivaumsharma/argus" target="_blank" rel="noopener">Code and write-up</a>
+                        <a class="btn btn--small" href="https://github.com/shivaumsharma/argus" target="_blank" rel="noopener">Code</a>
+                        <a class="btn btn--small btn--ghost" href="work/argus.html">Case study</a>
                     </div>
                 </div>
                 <div class="project__visual">
@@ -276,7 +304,7 @@
                     <div class="card__body">
                         <p class="project__kicker">Analytics · Streamlit · Power BI · SQL</p>
                         <h3 class="card__title">Amazon Financial Intelligence</h3>
-                        <p>Interactive dashboard on Amazon's 2020 to 2024 filings: KPI tracking, linear vs polynomial revenue forecasts with R² reported for both, z-score anomaly detection, and a benchmark against Zomato, Swiggy and Nykaa. Sources documented; small-sample caveat stated.</p>
+                        <p>Interactive dashboard on Amazon's 2020 to 2024 filings: KPI tracking, linear vs polynomial revenue forecasts with R² reported for both, z-score anomaly detection, and a benchmark against Zomato, Swiggy and Nykaa. Found that the FY2024 row held placeholder values and reconciled it against the actual earnings release. Small-sample caveat stated.</p>
                         <a class="text-link" href="https://github.com/shivaumsharma/Amazon-Financial-Analytics-Project" target="_blank" rel="noopener">View code →</a>
                     </div>
                 </article>
@@ -345,7 +373,7 @@ grade     realized forward returns,
                         <h3>Intern, Advisory: Intelligent Business Systems</h3>
                         <p class="tl__org">PricewaterhouseCoopers (PwC), India</p>
                         <ul>
-                            <li>Partnered with a Fortune 500 e-commerce client on an agentic-AI opportunity assessment: mapped workflows, benchmarked competitors' AI-agent adoption and pitched a more personalized workflow with flowcharts and Figma wireframes. The client approved all 10+ use cases and prioritized 3 for Q3 2026.</li>
+                            <li>Assessed agentic-AI workflows and use cases for a Fortune 500 e-commerce client, benchmarked competitors' AI-agent adoption, and prototyped a small RAG agent with flowcharts and Figma wireframes. The client approved all 10+ use cases and prioritized 3 for Q3 2026.</li>
                             <li>Authored 22 SOPs covering functionality, governance and safety guardrails for the client's fintech AI systems, researching UPI flows and RBI/NPCI requirements.</li>
                         </ul>
                     </div>
@@ -367,7 +395,7 @@ grade     realized forward returns,
                         <h3>IT Intern</h3>
                         <p class="tl__org">Bharat Heavy Electricals Limited (BHEL), Bhopal</p>
                         <ul>
-                            <li>Built a directed weighted graph engine in pure Python for infrastructure dependency modeling, with 100+ unit tests and a 256× speedup on large graphs.</li>
+                            <li>Built a directed weighted graph engine in pure Python for infrastructure dependency modeling, with 100+ unit tests and a 400× speedup on large graphs.</li>
                             <li>Designed the FastAPI and PostgreSQL service for cascade-failure simulation and criticality scoring: 94% alignment with domain-expert rankings, deployed with Docker and CI/CD.</li>
                         </ul>
                     </div>
@@ -392,7 +420,7 @@ grade     realized forward returns,
                 <p class="eyebrow">About</p>
                 <h2 class="section__title">Engineer by training, product-minded by habit.</h2>
                 <p>I'm a final-year B.Tech student in Computer Science (Data Science) at Manipal Institute of Technology, Bengaluru, graduating in 2027. My coursework covers machine learning, NLP, big data and databases; most of what I know, though, came from shipping things and finding out where they break.</p>
-                <p>A pattern runs through my projects: I measure the thing, publish the number, and fix the cause. When FinSight's backtest showed it losing to a naive baseline, I diagnosed why instead of hiding it. When DigiNyaya misjudged cases, I traced it to two specific bugs and moved accuracy from ~50% to 67%.</p>
+                <p>A pattern runs through my projects: I measure the thing, publish the number, and fix the cause. When FinSight's backtest showed it losing to a naive baseline, I diagnosed why instead of hiding it. When DigiNyaya's accuracy dropped as I scaled its evaluation from 1,914 to 23,841 real cases, I retired the flattering early figures and published the lower ones.</p>
                 <p>Outside of code I served as President of the MAHE Innovation Centre until September 2026, which kept me close to founders, go-to-market questions and the messy business side of building products. I'm looking for internships in AI/ML engineering and product management, especially where AI meets finance.</p>
             </div>
             <aside class="facts reveal" aria-label="Quick facts">
@@ -418,8 +446,12 @@ grade     realized forward returns,
                     <ul class="chips"><li>RAG pipelines</li><li>Agentic orchestration</li><li>LLM tool-calling</li><li>FinBERT</li><li>Prompt engineering</li></ul>
                 </div>
                 <div class="skill">
-                    <h3>AI evaluation and ops</h3>
-                    <ul class="chips"><li>Golden-eval suites as CI gates</li><li>Confidence-driven escalation</li><li>Token and cost tracking</li><li>A/B testing</li></ul>
+                    <h3>AI evaluation</h3>
+                    <ul class="chips"><li>Golden-eval CI gates</li><li>Citation-grounding checks</li><li>LLM-as-judge</li><li>Retrieval evals (NDCG, MRR)</li><li>Backtesting and leakage checks</li><li>Confidence-driven escalation</li></ul>
+                </div>
+                <div class="skill">
+                    <h3>Data and validation</h3>
+                    <ul class="chips"><li>SQL (PostgreSQL, MySQL)</li><li>Snowflake</li><li>pandas</li><li>Data reconciliation</li><li>Anomaly detection</li><li>Tableau</li><li>Power BI</li></ul>
                 </div>
                 <div class="skill">
                     <h3>Backend and APIs</h3>
@@ -431,11 +463,7 @@ grade     realized forward returns,
                 </div>
                 <div class="skill">
                     <h3>Languages and frontend</h3>
-                    <ul class="chips"><li>Python</li><li>Java</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>React</li><li>Next.js</li></ul>
-                </div>
-                <div class="skill">
-                    <h3>Data and core CS</h3>
-                    <ul class="chips"><li>PostgreSQL</li><li>MySQL</li><li>ChromaDB</li><li>Tableau</li><li>Power BI</li><li>Data structures and algorithms</li><li>System design</li></ul>
+                    <ul class="chips"><li>Python</li><li>Java</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>React</li><li>Next.js</li><li>Streamlit</li></ul>
                 </div>
             </div>
         </section>
@@ -443,21 +471,42 @@ grade     realized forward returns,
         <!-- CONTACT -->
         <section class="section wrap contact" id="contact">
             <div class="contact__card reveal">
-                <p class="eyebrow eyebrow--light">Contact</p>
-                <h2 class="contact__title">Let's build something worth measuring.</h2>
-                <p class="contact__lead">I'm open to internships in AI/ML engineering and product management. The quickest way to reach me is email.</p>
-                <div class="contact__cta">
-                    <a class="btn btn--light" href="mailto:sshivaum@gmail.com">Email me</a>
-                    <button class="btn btn--outline-light" id="copy-email" type="button" data-email="sshivaum@gmail.com">Copy address</button>
-                    <a class="btn btn--outline-light" href="assets/Shivaum_Sharma_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+                <div class="contact__info">
+                    <p class="eyebrow eyebrow--light">Contact</p>
+                    <h2 class="contact__title">Let's build something worth measuring.</h2>
+                    <p class="contact__lead">I'm open to internships in AI/ML engineering and product management. Send a note here, or reach me directly.</p>
+                    <div class="contact__cta">
+                        <a class="btn btn--light" href="mailto:sshivaum@gmail.com">Email me</a>
+                        <button class="btn btn--outline-light" id="copy-email" type="button" data-email="sshivaum@gmail.com">Copy address</button>
+                    </div>
+                    <div class="contact__cta">
+                        <a class="btn btn--outline-light" href="assets/Shivaum_Sharma_Resume.pdf" target="_blank" rel="noopener">Resume (AI / data)</a>
+                        <a class="btn btn--outline-light" href="assets/Shivaum_Sharma_Resume_Product.pdf" target="_blank" rel="noopener">Resume (product)</a>
+                    </div>
+                    <p class="contact__status" id="copy-status" role="status" aria-live="polite"></p>
                 </div>
-                <p class="contact__status" id="copy-status" role="status" aria-live="polite"></p>
+                <form class="cform" id="contact-form" action="https://formsubmit.co/sshivaum@gmail.com" method="POST" novalidate>
+                    <label class="cform__field"><span>Name</span>
+                        <input type="text" name="name" autocomplete="name" required maxlength="100">
+                    </label>
+                    <label class="cform__field"><span>Email</span>
+                        <input type="email" name="email" autocomplete="email" required maxlength="200">
+                    </label>
+                    <label class="cform__field"><span>Message</span>
+                        <textarea name="message" rows="5" required maxlength="4000"></textarea>
+                    </label>
+                    <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="cform__trap" aria-hidden="true">
+                    <input type="hidden" name="_subject" value="New message from your portfolio site">
+                    <input type="hidden" name="_template" value="table">
+                    <button class="btn btn--light cform__submit" type="submit">Send message</button>
+                    <p class="cform__status" id="form-status" role="status" aria-live="polite"></p>
+                </form>
             </div>
         </section>
     </main>
 
     <footer class="footer wrap">
-        <p>© <span id="year">2026</span> Shivaum Shekhar Sharma · Bengaluru, India</p>
+        <p>© <span id="year">2026</span> Shivaum Shekhar Sharma · Bengaluru, India<br><small>Privacy-friendly page-view counts (no cookies, no personal data).</small></p>
         <ul>
             <li><a href="https://github.com/shivaumsharma" target="_blank" rel="noopener">GitHub</a></li>
             <li><a href="https://www.linkedin.com/in/shivaum-sharma" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -465,7 +514,8 @@ grade     realized forward returns,
         </ul>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js?v=3"></script>
+    <script data-goatcounter="https://shivaumsharma.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 
 </html>
