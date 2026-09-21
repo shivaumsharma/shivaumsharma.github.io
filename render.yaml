@@ -1,0 +1,11 @@
+# Render Blueprint: deploys this repo as a free static site (no build step).
+services:
+  - type: web
+    name: shivaum-portfolio
+    runtime: static
+    staticPublishPath: .
+    buildCommand: echo "static site, nothing to build"
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=604800
