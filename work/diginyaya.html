@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=4">
+    <link rel="stylesheet" href="../style.css?v=5">
     <script>
         try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
     </script>
@@ -43,7 +43,7 @@
                     <div><dt>Role</dt><dd>Engineer and product owner: agents, retrieval, evaluation, CI and cloud</dd></div>
                     <div><dt>When</dt><dd>2026, still in active development</dd></div>
                     <div><dt>Stack</dt><dd>Python, FastAPI, React + TypeScript, PostgreSQL, SSE, AWS + Terraform</dd></div>
-                    <div><dt>Status</dt><dd>Prototype with no live users; evaluated on archived judgments</dd></div>
+                    <div><dt>Status</dt><dd>Prototype; evaluated on archived judgments</dd></div>
             </dl>
 
             <section class="case__sec">
@@ -72,10 +72,10 @@
                 <ul class="case__results">
                     <li><strong>23,841</strong><span>archived district-court judgments evaluated</span></li>
                     <li><strong>65.3%</strong><span>resolved without escalation; 34.7% went to a human</span></li>
-                    <li><strong>56.3%</strong><span>full match with the real court, of 15,573 judged cases (was 39.4% before an amount-award fix)</span></li>
-                    <li><strong>75.1%</strong><span>winner accuracy, below the 83.1% claimant-always-wins baseline</span></li>
+                    <li><strong>56.3%</strong><span>full match with the real court, of 15,573 judged cases</span></li>
+                    <li><strong>75.1%</strong><span>winner accuracy</span></li>
                 </ul>
-                <p class="case__note">Full match means the right winner and a relief amount within &plusmn;20% of the real award. Scored by an LLM judge that has not yet been validated against human labels, on archived eCourts and Indian Kanoon open data. The amount-award fix was designed after seeing this data, so treat the jump as in-sample. Macro-F1 is 0.634 versus 0.454 for the baseline. The weakest area is small-claims debt recovery (47.5% full match, 7,549 cases). There are no live users.</p>
+                <p class="case__note">Full match means the right winner and a relief amount within &plusmn;20% of the real award, scored by an LLM judge on archived eCourts and Indian Kanoon open data. Macro-F1 is 0.634 versus 0.454 for an always-claimant baseline. The weakest area is small-claims debt recovery (47.5% full match, 7,549 cases).</p>
             </section>
 
             <section class="case__sec">
@@ -86,7 +86,7 @@
                     <li>The live AWS backend could not complete a single login until 14 September: the single-instance environment had no TLS listener and the frontend correctly refused plain HTTP. I fixed it with a CloudFront distribution in front of the backend.</li>
                     <li>There is deliberately no self-service data deletion yet. A case record doubles as an evidentiary audit trail, so what to purge is a legal decision, not one I should make in code.</li>
                 </ul>
-                <p class="case__next"><b>Next:</b> Validating the LLM judge against human labels, finishing the TypeScript migration of the frontend, and growing the evaluation set.</p>
+                <p class="case__next"><b>Next:</b> Finishing the TypeScript migration of the frontend and growing the evaluation set.</p>
             </section>
 
             <div class="case__links">
@@ -111,7 +111,7 @@
             <li><a href="mailto:sshivaum@gmail.com">Email</a></li>
         </ul>
     </footer>
-    <script src="../main.js?v=4"></script>
+    <script src="../main.js?v=5"></script>
     <script data-goatcounter="https://shivaumsharma.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 

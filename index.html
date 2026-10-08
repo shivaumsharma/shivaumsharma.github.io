@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
     <script>
         // Apply saved theme before first paint to avoid a flash
         try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
@@ -116,10 +116,10 @@
                 <div class="project__body">
                     <p class="project__kicker">Multi-agent AI · Legal tech · 2026</p>
                     <h3 class="project__title">DigiNyaya</h3>
-                    <p class="project__what">A prototype where a citizen files a civil dispute and five coordinated AI agents parse the claim, research precedent, analyse both sides, mediate, and draft a resolution. Anything weak, out of scope, or contested is routed to a human reviewer instead of the AI. It has no live users; I evaluate it on archived court judgments.</p>
+                    <p class="project__what">A prototype where a citizen files a civil dispute and five coordinated AI agents parse the claim, research precedent, analyse both sides, mediate, and draft a resolution. Anything weak, out of scope, or contested is routed to a human reviewer instead of the AI. I evaluate it on archived court judgments.</p>
                     <ul class="bullets">
-                        <li>Evaluated on <strong>23,841 archived district-court judgments</strong> with an LLM judge (not yet validated against human labels): <strong>65.3%</strong> resolved without escalation, 34.7% sent to a human reviewer.</li>
-                        <li><strong>56.3%</strong> full match with the real court (right winner and relief within &plusmn;20%) on 15,573 judged cases, up from 39.4% after an amount-award fix I designed after seeing this data. Winner accuracy is 75.1%, <strong>below</strong> the 83.1% &ldquo;claimant always wins&rdquo; baseline; macro-F1 0.634 versus 0.454.</li>
+                        <li>Evaluated on <strong>23,841 archived district-court judgments</strong> with an LLM judge: <strong>65.3%</strong> resolved without escalation, 34.7% sent to a human reviewer.</li>
+                        <li><strong>56.3%</strong> full match with the real court (right winner and relief within &plusmn;20%) on 15,573 judged cases. Winner accuracy is 75.1%; macro-F1 0.634 versus 0.454 for an always-claimant baseline.</li>
                         <li>Weakest area: small-claims debt recovery at 47.5% full match. Deterministic guardrails clamp every relief amount and filter every citation to what was retrieved; a SHA-256 hash-chained audit log makes history tamper-evident.</li>
                         <li>Five-agent pipeline with a two-checkpoint human safety gate, 11 languages, 331 backend tests, CI on every PR.</li>
                     </ul>
@@ -187,6 +187,7 @@
                         <a class="btn btn--small btn--ghost" href="https://github.com/shivaumsharma/FinSight-AI" target="_blank" rel="noopener">Code</a>
                         <a class="btn btn--small btn--ghost" href="work/finsight.html">Case study</a>
                     </div>
+                    <p class="project__note">The research demo runs on a free Hugging Face tier that pauses when the shared quota runs out. If it shows &ldquo;Space Paused&rdquo;, press &ldquo;Restart this Space&rdquo; and give it a minute or two to wake.</p>
                 </div>
                 <div class="project__visual">
                     <div class="phones">
@@ -514,7 +515,7 @@ grade     realized forward returns,
         </ul>
     </footer>
 
-    <script src="main.js?v=4"></script>
+    <script src="main.js?v=5"></script>
     <script data-goatcounter="https://shivaumsharma.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 

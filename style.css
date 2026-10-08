@@ -129,7 +129,7 @@ h1, h2, h3, p { margin: 0; }
 .project__links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .project__visual { min-width: 0; }
 
-.project__note { margin-top: 10px; font-size: .86rem; color: var(--ink-3); font-style: italic; }
+.project__note { margin-top: 12px; font-size: .86rem; color: var(--ink-2); font-style: italic; }
 
 /* DigiNyaya product tour */
 .tour { padding: 8px 0 56px; }
