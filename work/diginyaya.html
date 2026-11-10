@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=5">
+    <link rel="stylesheet" href="../style.css?v=8">
     <script>
         try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
     </script>
@@ -21,7 +21,7 @@
     <a class="skip" href="#main">Skip to content</a>
     <header class="header" id="header">
         <nav class="nav wrap" aria-label="Primary">
-            <a href="../index.html" class="logo" aria-label="Shivaum Sharma, home">SS<span>.</span></a>
+            <a href="../index.html" class="logo" aria-label="SS. Shivaum Sharma, home">SS<span>.</span></a>
             <div class="nav__actions">
                 <a class="btn btn--small btn--ghost" href="../index.html#work">All work</a>
                 <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
@@ -81,7 +81,8 @@
             <section class="case__sec">
                 <h2>What went wrong, and what is next</h2>
                 <ul class="bullets">
-                    <li>A text-only classifier reaches 86.8% winner accuracy on the same cases, beating the pipeline&#x27;s 75.1%, so on winner accuracy alone the agents do not yet beat a simple baseline.</li>
+                    <li>The 23,841-case results are for the rule-based pipeline, not the LLM agents. Running the agents on a 2,000-case sample lowered winner accuracy from 75.0% to 61.6% (95% CI of the gap 11.1 to 15.5 points); the cause is one uncalibrated analysis score. After a fix fitted on half of 994 cases and checked on 298 unseen ones, the agents reached 71.8% against 71.1% for the rule-based engine: parity, not an improvement.</li>
+                    <li>A fine-tuned InLegalBERT baseline scores 86.8% winner accuracy (macro-F1 0.782) on the held-out text, above the pipeline&#x27;s 75.1%. On cases rebuilt from pre-decision text it falls from 84.5% to 79.2%, while the pipeline&#x27;s accuracy on the rebuilt cases moves from 80.9% to 81.2%, so no inflation above about 5 points is detectable for the pipeline.</li>
                     <li>The pipeline&#x27;s confidence score correlates only weakly with correctness (0.19), so it is a poor guide to when an output can be trusted.</li>
                     <li>The live AWS backend could not complete a single login until 14 September: the single-instance environment had no TLS listener and the frontend correctly refused plain HTTP. I fixed it with a CloudFront distribution in front of the backend.</li>
                     <li>There is deliberately no self-service data deletion yet. A case record doubles as an evidentiary audit trail, so what to purge is a legal decision, not one I should make in code.</li>
@@ -111,7 +112,7 @@
             <li><a href="mailto:sshivaum@gmail.com">Email</a></li>
         </ul>
     </footer>
-    <script src="../main.js?v=5"></script>
+    <script src="../main.js?v=8"></script>
     <script data-goatcounter="https://shivaumsharma.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 

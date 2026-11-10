@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=5">
+    <link rel="stylesheet" href="../style.css?v=8">
     <script>
         try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
     </script>
@@ -21,7 +21,7 @@
     <a class="skip" href="#main">Skip to content</a>
     <header class="header" id="header">
         <nav class="nav wrap" aria-label="Primary">
-            <a href="../index.html" class="logo" aria-label="Shivaum Sharma, home">SS<span>.</span></a>
+            <a href="../index.html" class="logo" aria-label="SS. Shivaum Sharma, home">SS<span>.</span></a>
             <div class="nav__actions">
                 <a class="btn btn--small btn--ghost" href="../index.html#work">All work</a>
                 <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
@@ -72,8 +72,8 @@
                 <ul class="case__results">
                     <li><strong>38.6%</strong><span>12-month forward accuracy (N=1,907, 95% CI 36.4 to 40.8)</span></li>
                     <li><strong>58.4%</strong><span>Always-Buy baseline (95% CI 56.1 to 60.6)</span></li>
-                    <li><strong>4×</strong><span>faster reports: 257s down to 65s</span></li>
-                    <li><strong>65</strong><span>findings in a code audit, including an RCE fix</span></li>
+                    <li><strong>257 s &rarr; 65 s</strong><span>local-LLM narrative generation after moving to llama.cpp, same machine</span></li>
+                    <li><strong>1,000+</strong><span>pytest tests in CI</span></li>
                 </ul>
                 <p class="case__note">The model currently loses to doing nothing. Buy calls carry real signal (52.8 to 65% precision) while Sell calls do not (as low as 15.6%), and every tested window sits inside a rising market where Always-Buy is a strong baseline.</p>
             </section>
@@ -82,7 +82,7 @@
                 <h2>What went wrong, and what is next</h2>
                 <ul class="bullets">
                     <li>The backtest caught two look-ahead data leaks and a class-imbalance trap: a classifier&#x27;s 61% raw accuracy was just majority-class guessing.</li>
-                    <li>A walk-forward portfolio backtest also lost to a no-signal baseline. I traced why instead of stopping at the loss: the scoring signal is real but weak (Information Coefficient +0.093), and 45% of the biggest single-period gainers had been rated Sell, which a Buy-only portfolio structurally excludes. A tilt strategy improved risk-adjusted return but did not close the gap, and I have reported it as unfinished.</li>
+                    <li>A walk-forward portfolio backtest also lost to a no-signal baseline. The scoring signal first looked weak but real (an Information Coefficient of +0.093 over nine quarters), but a longer pre-registered retest on SEC EDGAR as-filed data (984 tickers, 53 quarters, 2012 to 2025, sealed holdout untouched) found +0.011 (t = 0.6) and rejected every tested fix, so I now describe FinSight as a transparent valuation-research tool with a rigorous self-evaluation, not a return predictor.</li>
                 </ul>
                 <p class="case__next"><b>Next:</b> Hybrid retrieval (vector plus BM25), a Postgres migration, and further work on the Sell-side signal.</p>
             </section>
@@ -112,7 +112,7 @@
             <li><a href="mailto:sshivaum@gmail.com">Email</a></li>
         </ul>
     </footer>
-    <script src="../main.js?v=5"></script>
+    <script src="../main.js?v=8"></script>
     <script data-goatcounter="https://shivaumsharma.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 

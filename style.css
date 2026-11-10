@@ -305,7 +305,7 @@ h1, h2, h3, p { margin: 0; }
 .cform__submit:disabled { opacity: .6; cursor: progress; }
 .cform__status { min-height: 1.4em; font-size: .86rem; color: #ffd2b8; }
 .cform__status a { color: #fff; }
-.footer small { font-size: .78rem; opacity: .85; }
+.footer small { font-size: .78rem; color: var(--ink-2); }
 
 @media (max-width: 960px) {
     .building__list { grid-template-columns: 1fr; }
@@ -352,3 +352,11 @@ h1, h2, h3, p { margin: 0; }
     .case__results li:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
 }
 @media (max-width: 760px) { .shots { grid-template-columns: 1fr; } }
+
+/* ---------- Proof strip, linked metric tiles, skill provenance ---------- */
+.proof { margin-top: 12px; padding: 8px 12px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0; font: 500 .76rem/1.5 var(--mono); color: var(--ink); }
+a.stat { display: block; color: inherit; text-decoration: none; transition: background .15s; }
+a.stat:hover { background: var(--accent-soft); }
+a.stat:focus-visible { outline-offset: -3px; }
+.skill__used { margin-top: 14px; font-size: .8rem; color: var(--ink-2); }
+.skill__used a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
