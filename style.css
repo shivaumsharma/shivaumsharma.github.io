@@ -137,7 +137,8 @@ h1, h2, h3, p { margin: 0; }
 .tour__title { font: 400 clamp(1.7rem, 3vw, 2.3rem)/1.15 var(--serif); margin: 8px 0 10px; }
 .tour__lead { color: var(--ink-2); font-size: .95rem; }
 .tour__video { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: #000; }
-.tour__video video { width: 100%; height: auto; aspect-ratio: 1600 / 842; display: block; background: #000; }
+.tour__video video { width: 100%; height: auto; aspect-ratio: 1280 / 800; display: block; background: #000; }
+.tour__video { margin-bottom: 20px; }
 .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
 .shots li { display: grid; gap: 8px; align-content: start; }
 .shots a { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); transition: transform .2s, box-shadow .2s; }

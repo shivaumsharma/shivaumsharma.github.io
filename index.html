@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=9">
     <script>
         // Apply saved theme before first paint to avoid a flash
         try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
@@ -158,7 +158,13 @@
                 <div class="tour__head">
                     <p class="project__kicker">DigiNyaya &middot; Screenshots</p>
                     <h3 class="tour__title" id="tour-title">The agents, and the order they produce.</h3>
-                    <p class="tour__lead">Screens from an earlier build running locally on demo data, not a live service.</p>
+                    <p class="tour__lead">A 40-second recording of one demo case going through the app: sign-up, a loaded demo dispute, the pre-filing review, filing, the respondent&#x27;s reply, the agent trace, the mediation proposal and the drafted order. It runs on demo data with the scripted engine and is not a live service. The screenshots below are from an earlier build.</p>
+                </div>
+                <div class="tour__video">
+                    <video controls preload="none" playsinline poster="assets/diginyaya/walkthrough-poster.jpg" width="1280" height="800">
+                        <source src="assets/diginyaya/walkthrough.mp4" type="video/mp4">
+                        Your browser can't play this video. <a href="assets/diginyaya/walkthrough.mp4">Download the MP4</a>.
+                    </video>
                 </div>
                 <ul class="shots">
                     <li>
@@ -564,7 +570,7 @@ grade     realized forward returns,
         </ul>
     </footer>
 
-    <script src="main.js?v=8"></script>
+    <script src="main.js?v=9"></script>
     <script data-goatcounter="https://shivaumsharma.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 
