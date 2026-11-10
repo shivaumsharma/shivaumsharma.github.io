@@ -73,7 +73,7 @@ on(copyBtn, 'click', async () => {
     setTimeout(() => { copyStatus.textContent = ''; }, 3000);
 });
 
-// Contact form: submits in the background to FormSubmit; falls back to mailto if it fails
+// Contact form: submits in the background to Web3Forms; falls back to mailto if it fails
 const form = $('#contact-form');
 const formStatus = $('#form-status');
 on(form, 'submit', async (e) => {
@@ -97,13 +97,14 @@ on(form, 'submit', async (e) => {
     btn.disabled = true;
     formStatus.textContent = 'Sending...';
     try {
-        const res = await fetch('https://formsubmit.co/ajax/sshivaum@gmail.com', {
+        if (String(data.get('access_key')).startsWith('PASTE_')) throw new Error('access key not set');
+        const res = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: { 'Accept': 'application/json' },
             body: data,
         });
         const out = await res.json().catch(() => ({}));
-        if (res.ok && String(out.success) === 'true') {
+        if (res.ok && out.success === true) {
             formStatus.textContent = 'Thanks, your message is on its way. I will reply soon.';
             form.reset();
         } else {
